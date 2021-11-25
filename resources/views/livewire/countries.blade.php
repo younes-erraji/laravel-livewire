@@ -19,7 +19,7 @@
                 <td>{{ $country->capital_city }}</td>
                 <td>
                     <div class="btn-group">
-                        <a data-id="{{ $country->id }}" class="update-button btn btn-sm btn-primary"><i class="fa fa-pencil-square-o"></i></a>
+                        <a data-id="{{ $country->id }}" class="update-button btn btn-sm btn-primary" wire:click='openUpdateCountryModal()'><i class="fa fa-pencil-square-o"></i></a>
                         <a data-id="{{ $country->id }}" class="delete-button btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                     </div>
                 </td>
@@ -30,4 +30,5 @@
         </tbody>
     </table>
     @include('modals.add-country')
+    @include('modals.update-country')
 </div>

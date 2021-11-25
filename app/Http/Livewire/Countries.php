@@ -26,6 +26,13 @@ class Countries extends Component
         $this->dispatchBrowserEvent('add-country-modal');
     }
 
+    public function openUpdateCountryModal() {
+        $this->continent = '';
+        $this->country_name = '';
+        $this->capital_city = '';
+        $this->dispatchBrowserEvent('update-country-modal');
+    }
+
     public function saveNewCountry() {
         $this->validate([
             'continent' => 'required',
@@ -43,6 +50,26 @@ class Countries extends Component
             $this->dispatchBrowserEvent('insertingRecordsSuccessed');
         } else {
             $this->dispatchBrowserEvent('insertingRecordsFailed');
+        }
+    }
+
+    public function updateCountry() {
+        $this->validate([
+            'continent' => 'required',
+            'country_name' => 'required',
+            'capital_city' => 'required',
+        ]);
+
+        $save = Country::update([
+            'continent_id' => $this->continent,
+            'country_name' => $this->country_name,
+            'capital_city' => $this->capital_city,
+        ]);
+
+        if ($save) {
+            $this->dispatchBrowserEvent('updateRecordSuccessed');
+        } else {
+            $this->dispatchBrowserEvent('updateRecordFailed');
         }
     }
 }

@@ -1,23 +1,23 @@
-  <div class="modal fade" wire:ignore.self id="add-country" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" wire:ignore.self id="update-country" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Add new country</h5>
+          <h5 class="modal-title" id="staticBackdropLabel">Update country</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
 
-            <div id="success-add" class="alert alert-success">
-                The insertion created successfully
+            <div id="success-update" class="alert alert-success">
+                The update operation completed successfully
             </div>
 
-            <div id="fail-add" class="alert alert-danger">
+            <div id="fail-update" class="alert alert-danger">
                 Something went wrong
             </div>
 
-          <form id="add-form" wire:submit.prevent='saveNewCountry' action="">
+          <form id="add-form" wire:submit.prevent='updateCountry' action="">
             <div class="form-group">
                 <label for="continent">Country name</label>
                 <select class="form-control" wire:model="continent" id="continent">

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
     @livewireStyles
     <style>
-        #fail, #success {
+        #fail-add, #success-add, #success-update, #fail-update {
             display: none
         }
     </style>
@@ -35,18 +35,38 @@
             $('#add-country').modal('show');
         });
 
+        window.addEventListener('update-country-modal' , function () {
+            $('#update-country').find('small.text-danger').text('');
+            $('#update-country').find('form')[0].reset();
+            $('#update-country').modal('show');
+        });
+
         window.addEventListener('insertingRecordsSuccessed', function () {
             $('#add-country').find('small.text-danger').text('');
             $('#add-country').find('form')[0].reset();
-            $('#success').show();
-            $('#fail').hide();
+            $('#success-add').show();
+            $('#fail-add').hide();
         });
 
         window.addEventListener('insertingRecordsFailed', function () {
             $('#add-country').find('small.text-danger').text('');
             $('#add-country').find('form')[0].reset();
-            $('#success').hide();
-            $('#fail').show();
+            $('#success-add').hide();
+            $('#fail-add').show();
+        });
+
+        window.addEventListener('updateRecordSuccessed', function () {
+            $('#update-country').find('small.text-danger').text('');
+            $('#update-country').find('form')[0].reset();
+            $('#success-update').show();
+            $('#fail-update').hide();
+        });
+
+        window.addEventListener('updateRecordFailed', function () {
+            $('#update-country').find('small.text-danger').text('');
+            $('#update-country').find('form')[0].reset();
+            $('#success-update').hide();
+            $('#fail-update').show();
         });
     </script>
 </body>
