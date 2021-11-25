@@ -1,10 +1,7 @@
 <?php
 
+use App\Http\Controllers\CountriesController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/countries', function () {
-    return view('countries');
-});
+Route::get('/', [CountriesController::class, 'index']);
+Route::get('/countries', [CountriesController::class, 'countries']);
