@@ -14,13 +14,15 @@ class ContinentsSeeder extends Seeder
      */
     public function run()
     {
-        Continent::create(['continent_name' => 'Africa']);
-        Continent::create(['continent_name' => 'Europe']);
-        Continent::create(['continent_name' => 'Asia']);
-        Continent::create(['continent_name' => 'Antarctica']);
-        Continent::create(['continent_name' => 'Australia']);
-        Continent::create(['continent_name' => 'North America']);
-        Continent::create(['continent_name' => 'South America']);
+        Continent::insert([
+            ['continent_name' => 'Africa'],
+            ['continent_name' => 'Europe'],
+            ['continent_name' => 'Asia'],
+            ['continent_name' => 'Antarctica'],
+            ['continent_name' => 'Australia'],
+            ['continent_name' => 'North America'],
+            ['continent_name' => 'South America']
+        ]);
 
     }
 }

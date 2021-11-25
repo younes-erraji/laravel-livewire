@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Continent extends Model
 {
     use HasFactory;
+    function country() {
+        return $this->hasMany(Country::class, 'id', 'continent_id');
+    }
 }
