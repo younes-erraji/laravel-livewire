@@ -19,13 +19,14 @@
                 <td>{{ $country->capital_city }}</td>
                 <td>
                     <div class="btn-group">
-                        <a data-id="{{ $country->id }}" class="update-button btn btn-sm btn-primary" wire:click='openUpdateCountryModal()'><i class="fa fa-pencil-square-o"></i></a>
+                        <a class="update-button btn btn-sm btn-primary" wire:click='openUpdateCountryModal("{{ $country->id }}")'><i class="fa fa-pencil-square-o"></i></a>
                         <a data-id="{{ $country->id }}" class="delete-button btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                        <input type="hidden" class='submit-delete' wire:click='deleteCountry("{{ $country->id }}")' />
                     </div>
                 </td>
             </tr>
             @empty
-                <tr><th colspan="4"><code class="d-block text-center">No data to show</code></th></tr>
+                <tr><th colspan="5"><code class="d-block text-center">No data to show</code></th></tr>
             @endforelse
         </tbody>
     </table>

@@ -8,50 +8,46 @@
           </button>
         </div>
         <div class="modal-body">
-
             <div id="success-update" class="alert alert-success">
                 The update operation completed successfully
             </div>
-
             <div id="fail-update" class="alert alert-danger">
                 Something went wrong
             </div>
-
-          <form id="add-form" wire:submit.prevent='updateCountry' action="">
+          <form id="update-form" wire:submit.prevent='updateCountry'>
+            <input type="hidden" wire:model="up_country_id" />
             <div class="form-group">
-                <label for="continent">Country name</label>
-                <select class="form-control" wire:model="continent" id="continent">
+                <label for="up_continent">Continent</label>
+                <select class="form-control" wire:model="up_continent" id="up_continent">
                     <option disabled selected>choose...</option>
                     @foreach ($continents as $continent)
                     <option value="{{ $continent->id }}">{{ $continent->continent_name }}</option>
                     @endforeach
                 </select>
-                @error('continent')
+                @error('up_continent')
                     <small class="form-text text-danger">{{ $message }}</small>
                 @enderror
-              </div>
+            </div>
             <div class="form-group">
-                <label for="country_name">Country name</label>
-                <input type="text" class="form-control" wire:model="country_name" id="country_name" placeholder="Country name ..." />
-                @error('country_name')
+                <label for="up_country_name">Country name</label>
+                <input type="text" class="form-control" wire:model="up_country_name" id="up_country_name" />
+                @error('up_country_name')
                     <small class="form-text text-danger">{{ $message }}</small>
                 @enderror
-              </div>
-
-              <div class="form-group">
-                <label for="capital_city">Capital city</label>
-                <input type="text" class="form-control" wire:model="capital_city" id="capital_city" placeholder="Capital city ..." />
-                @error('capital_city')
+            </div>
+            <div class="form-group">
+                <label for="up_capital_city">Capital city</label>
+                <input type="text" class="form-control" wire:model="up_capital_city" id="up_capital_city" />
+                @error('up_capital_city')
                     <small class="form-text text-danger">{{ $message }}</small>
                 @enderror
-              </div>
-
+            </div>
           </form>
         </div>
         <div class="modal-footer">
             <div class="form-group">
                 <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                <button form='add-form' class="btn btn-primary">Save</button>
+                <button form='update-form' class="btn btn-primary">Update</button>
             </div>
         </div>
       </div>
