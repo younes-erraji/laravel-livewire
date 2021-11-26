@@ -49,7 +49,7 @@
         </div>
     </nav>
     @yield('content')
-    <footer class="page-footer font-small pt-4 bg-dark text-white">
+    <footer class="page-footer font-small pt-4 bg-secondary text-white">
         <div class="container text-center text-md-left">
             <div class="row">
                 <div class="col-md-6 mt-md-0 mt-3">
@@ -94,6 +94,8 @@
                 </div>
             </div>
         </div>
+    </footer>
+    <footer class="bg-dark">
         <div class="footer-copyright text-center py-3">© 2020 Copyright:
             <a href="#"> Younes ERRAJI</a>
         </div>
